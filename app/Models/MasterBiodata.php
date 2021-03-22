@@ -28,9 +28,30 @@ class MasterBiodata extends Model
         return $this->hasOne(MasterSuamiIstri::class, 'pegawai_id');
     }
 
+    public function scopeJoinJabFungsional($q)
+    {
+        $q->join('rwyt_jab_fungsional', 'rwyt_jab_fungsional.pegawai_id', $this->table.'.pegawai_id');
+    }
+
+    public function scopeJoinJabPelaksana($q)
+    {
+        $q->join('rwyt_jab_pelaksana', 'rwyt_jab_pelaksana.pegawai_id', $this->table.'.pegawai_id');
+    }
+
+    public function scopeJoinJabStruktural($q)
+    {
+        $q->join('rwyt_jab_struktural', 'rwyt_jab_struktural.pegawai_id', $this->table.'.pegawai_id');
+    }
+
+    public function scopeJoinJabTambahan($q)
+    {
+        $q->join('rwyt_jab_tambahan', 'rwyt_jab_tambahan.pegawai_id', $this->table.'.pegawai_id');
+    }
+
+
     public function scopeSearch($q, $request)
     {
-        $q->where('jk', 'P');
+        // $q->where('jk', 'P');
 
         $columns = $request['column'] ?? [];
         foreach ($columns as $key => $column) {
