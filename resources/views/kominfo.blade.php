@@ -93,6 +93,7 @@
                                         <th>NIP</th>
                                         <th>Tgl. Lahir</th>
                                         <th>TLP</th>
+                                        <th>Alamat</th>
                                         <th>Pencarian Fb</th>
                                     </tr>
                                 </thead>

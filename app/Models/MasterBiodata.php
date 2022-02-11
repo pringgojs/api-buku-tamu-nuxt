@@ -48,6 +48,21 @@ class MasterBiodata extends Model
         $q->join('rwyt_jab_tambahan', 'rwyt_jab_tambahan.pegawai_id', $this->table.'.pegawai_id');
     }
 
+    public function jabFungsional()
+    {
+        return $this->hasOne(JabFungsional::class, 'pegawai_id');
+    }
+
+    public function jabStruktural()
+    {
+        return $this->hasOne(JabStruktural::class, 'pegawai_id');
+    }
+
+    public function jabPelaksana()
+    {
+        return $this->hasOne(JabPelaksana::class, 'pegawai_id');
+    }
+
 
     public function scopeSearch($q, $request)
     {

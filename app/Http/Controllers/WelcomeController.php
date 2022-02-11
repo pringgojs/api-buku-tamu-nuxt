@@ -60,10 +60,11 @@ class WelcomeController extends Controller
 
     public function getFile(Request $request)
     {
-        info($request->all());
+        // info($request->all());
 
         $file = base64_decode($request['base64file']);
-        $path = public_path() . '/upload/test.jpeg';
+        info($file);
+        $path = public_path() . '/upload/test_'.date('YmdHis').'.jpeg';
         $success = file_put_contents($path, $file);
         
         
