@@ -33,9 +33,9 @@ class GuestController extends Controller
         \File::put(public_path(). '/upload/' . $imageName, base64_decode($image));
 
         $model = new Guest();
-        $model->name = $request->name;
+        $model->name = ucwords($request->name);
         $model->phone = $request->phone;
-        $model->institution = $request->institution;
+        $model->institution = ucwords($request->institution);
         $model->avatar = 'upload/'.$imageName;
         $model->save();
 
