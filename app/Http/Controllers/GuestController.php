@@ -36,7 +36,7 @@ class GuestController extends Controller
         $model->name = $request->name;
         $model->phone = $request->phone;
         $model->institution = $request->institution;
-        $model->avatar = url('/upload/'.$imageName);
+        $model->avatar = 'upload/'.$imageName;
         $model->save();
 
         $guests = Guest::orderBy('created_at', 'desc')->get(); 
